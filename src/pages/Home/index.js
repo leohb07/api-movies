@@ -3,6 +3,7 @@ import { MovieList } from "../../components/MovieList";
 import { Movie } from "../../components/Movie";
 import { useEffect, useState } from "react";
 import { APIKey } from "../../config/Key";
+import { Link } from "react-router-dom"
 
 
 export function Home() {
@@ -23,9 +24,9 @@ export function Home() {
         {movies.map(movie => {
           return (
             <Movie key={movie.id}>
-              <a href="https://www.google.com.br">
+              <Link to={`/details/${movie.id}`}>
                 <img src={`${image_path}${movie.poster_path}`} alt={movie.title}/>
-              </a>
+              </Link>
                 <span>{movie.title}</span>
             </Movie>
           )
